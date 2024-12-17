@@ -1,0 +1,12 @@
+---
+kind: Pod
+apiVersion: apps/v1
+metadata:
+  name: web
+spec:
+  containers:
+    - name: nginx   # 필수 아님 
+      image: nginx
+      ports:
+        - containerPort: 80
+          protocol: TCP   # default=TCP

@@ -1,0 +1,28 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: prodns
+
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: myweb
+  namespace: prodns
+spec:
+  containers:
+    - name: myweb-container
+      image: wendy0408/mynginx
+      ports:
+        - containerPort: 80
+      resources:
+        requests:
+          cpu: 200m
+          memory: 500Mi
+        limits:
+          cpu: 1
+          memory: 1Gi
+      env:
+        - name: DB
+          value: mydb
